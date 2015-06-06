@@ -1,5 +1,5 @@
 # Description:
-#   Tells the status of GHE
+#   Access your GitHub Enterprise instance through Hubot
 #
 # Dependencies:
 #   None
@@ -13,7 +13,7 @@
 #   hubot ghe (status|info) <info> - gives some information about large repositories
 #
 # Authors:
-#   pnsk
+#   pnsk, mgriffin
 
 module.exports = (robot) ->
   robot.respond /ghe (status|info)? ?(.*)$/i, (msg) ->
