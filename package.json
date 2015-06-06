@@ -1,0 +1,38 @@
+{
+  "name": "hubot-ghe",
+  "description": "Interact with GitHub Enterprise through Hubot",
+  "version": "0.0.1",
+  "author": "Mike Griffin <mgriffin@github.com>",
+  "license": "MIT",
+
+  "keywords": [
+    "hubot",
+    "hubot-scripts"
+  ],
+
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:hubot-scripts/hubot-ghe.git"
+  },
+
+  "bugs": {
+    "url": "https://github.com/hubot-scripts/hubot-ghe/issues"
+  },
+
+  "dependencies": {
+    "coffee-script": "^1.9.3"
+  },
+
+  "devDependencies": {
+    "mocha": "*",
+    "chai": "^1.9.2",
+    "sinon-chai": "*",
+    "sinon": "*"
+  },
+
+  "main": "index.coffee",
+
+  "scripts": {
+    "test": "script/test"
+  }
+}
