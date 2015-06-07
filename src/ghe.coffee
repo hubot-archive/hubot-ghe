@@ -24,12 +24,10 @@ module.exports = (robot) ->
       msg.send "token isn't set."
 
     info_term = msg.match[2]
-    if info_term is "license"
-      ghe_license msg,auth,url
-    if info_term is "largerepo"
-      ghe_largerepo msg,auth,url
-    else
-      msg.send "I don't know about #{info_term}"
+    switch info_term
+      when "license" then ghe_license msg,token,url
+      when "largerepo" then ghe_largerepo msg,token,url
+      else msg.send "I don't know about #{info_term}"
 
 ghe_license = (msg, token, url) ->
     msg.http("#{url}/enterprise/settings/license")
