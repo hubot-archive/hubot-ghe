@@ -6,8 +6,7 @@
 #
 # Configuration:
 #   HUBOT_GHE_URL
-#   HUBOT_GHE_USERNAME
-#   HUBOT_GHE_PASSWORD
+#   HUBOT_GHE_TOKEN
 #
 # Commands:
 #   hubot ghe (status|info) <info> - gives some information about large repositories
@@ -17,19 +16,11 @@
 
 module.exports = (robot) ->
   robot.respond /ghe (status|info)? ?(.*)$/i, (msg) ->
-    url = process.env.HUBOT_GHE_URL
-    user = process.env.HUBOT_GHE_USERNAME
-    pass = process.env.HUBOT_GHE_PASSWORD
-    auth = 'Basic ' + new Buffer(user + ':' + pass).toString("base64")
+    url = process.env.HUBOT_GHE_URL + '/api/v3'
+    token = process.env.HUBOT_GHE_TOKEN
 
-    unless user
-      msg.send "user isn't set."
-
-    unless pass
-      msg.send "pass isn't set."
-
-    unless auth
-      msg.send "auth isn't set."
+    unless token
+      msg.send "token isn't set."
 
     info_term = msg.match[2]
     if info_term is "license"
@@ -39,9 +30,9 @@ module.exports = (robot) ->
     else
       msg.send "I don't know about #{info_term}"
 
-ghe_license = (msg, auth,url) ->
+ghe_license = (msg, token, url) ->
     msg.http("#{url}/enterprise/settings/license")
-    .header("Authorization", auth)
+    .header("Authorization", "token #{token}")
     .get() (err, res, body) ->
         if err
              msg.send "error"
@@ -52,10 +43,10 @@ ghe_license = (msg, auth,url) ->
            else
                msg.send "statusCode: #{res.statusCode}"
 
-ghe_largerepo = (msg, auth, url) ->
+ghe_largerepo = (msg, token, url) ->
     repo_min = 2000000
     msg.http("#{url}/search/repositories?q=size:>=#{repo_min}")
-    .header("Authorization", auth)
+    .header("Authorization", "token #{token}")
     .get() (err, res, body) ->
         if err
              msg.send "error"
