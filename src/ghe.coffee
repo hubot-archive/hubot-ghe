@@ -9,7 +9,8 @@
 #   HUBOT_GHE_TOKEN
 #
 # Commands:
-#   hubot ghe (status|info) <info> - gives some information about large repositories
+#   hubot ghe (status|info) license - returns license information
+#   hubot ghe (status|info) largerepo - returns information about large repositories
 #
 # Authors:
 #   pnsk, mgriffin
