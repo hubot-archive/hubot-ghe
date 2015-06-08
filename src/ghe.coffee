@@ -10,6 +10,10 @@
 #
 # Commands:
 #   hubot ghe license - returns license information
+#   hubot ghe stats issues - returns issue information
+#   hubot ghe stats hooks - returns hook information
+#   hubot ghe stats milestones - returns milestone information
+#   hubot ghe stats issues - returns user information
 #
 # Authors:
 #   pnsk, mgriffin
@@ -53,6 +57,8 @@ ghe_stats = (msg, token, url) ->
         results = JSON.parse body
         switch type
           when "issues" then msg.send "#{results.total_issues} issues in total; #{results.open_issues} open and #{results.closed_issues} closed."
+          when "hooks" then msg.send "#{results.total_hooks} hooks in total; #{results.active_hooks} active and #{results.inactive_hooks} inactive."
+          when "milestones" then msg.send "#{results.total_milestones} milestones in total; #{results.open_milestones} open and #{results.closed_milestones} closed."
           when "users" then msg.send "#{results.total_users} users, #{results.admin_users} admins and #{results.suspended_users} suspended."
       else
         msg.send "statusCode: #{res.statusCode} -- #{body} -- type: #{type} -- #{msg.match[1]}"
