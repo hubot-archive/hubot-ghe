@@ -9,7 +9,7 @@
 #   HUBOT_GHE_TOKEN
 #
 # Commands:
-#   hubot ghe (status|info) license - returns license information
+#   hubot ghe license - returns license information
 #
 # Authors:
 #   pnsk, mgriffin
@@ -22,7 +22,7 @@ module.exports = (robot) ->
   unless token
     msg.send "token isn't set."
 
-  robot.respond /ghe info$/i, (msg) ->
+  robot.respond /ghe license$/i, (msg) ->
     ghe_license msg,token,url
 
   robot.respond /ghe stats (.*)$/i, (msg) ->
