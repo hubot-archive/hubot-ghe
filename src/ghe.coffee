@@ -10,10 +10,16 @@
 #
 # Commands:
 #   hubot ghe license - returns license information
-#   hubot ghe stats issues - returns issue information
-#   hubot ghe stats hooks - returns hook information
-#   hubot ghe stats milestones - returns milestone information
-#   hubot ghe stats issues - returns user information
+#   hubot ghe stats issues - returns the number of open and closed issues
+#   hubot ghe stats hooks - returns the number of active and inactive hooks
+#   hubot ghe stats milestones - returns the number of open and closed milestones
+#   hubot ghe stats orgs - returns the number of organizations, teams, team members, and disabled organizations
+#   hubot ghe stats comments - returns the number of comments on issues, pull requests, commits, and gists
+#   hubot ghe stats pages - returns the number of GitHub Pages sites
+#   hubot ghe stats users - returns the number of suspended and admin users
+#   hubot ghe stats gists - returns the number of private and public gists
+#   hubot ghe stats pulls - returns the number of merged, mergeable, and unmergeable pull requests
+#   hubot ghe stats repos - returns the number of organization-owned repositories, root repositories, forks, pushed commits, and wikis
 #
 # Authors:
 #   pnsk, mgriffin
