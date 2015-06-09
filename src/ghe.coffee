@@ -56,9 +56,15 @@ ghe_stats = (msg, token, url) ->
       if res.statusCode is 200
         results = JSON.parse body
         switch type
-          when "issues" then msg.send "#{results.total_issues} issues in total; #{results.open_issues} open and #{results.closed_issues} closed."
-          when "hooks" then msg.send "#{results.total_hooks} hooks in total; #{results.active_hooks} active and #{results.inactive_hooks} inactive."
-          when "milestones" then msg.send "#{results.total_milestones} milestones in total; #{results.open_milestones} open and #{results.closed_milestones} closed."
-          when "users" then msg.send "#{results.total_users} users, #{results.admin_users} admins and #{results.suspended_users} suspended."
+          when "issues" then msg.send "#{results.total_issues} issues; #{results.open_issues} open and #{results.closed_issues} closed."
+          when "hooks" then msg.send "#{results.total_hooks} hooks; #{results.active_hooks} active and #{results.inactive_hooks} inactive."
+          when "milestones" then msg.send "#{results.total_milestones} milestones; #{results.open_milestones} open and #{results.closed_milestones} closed."
+          when "orgs" then msg.send "#{results.total_orgs} organizations; #{results.disabled_orgs} disabled.\n#{results.total_teams} teams with #{results.total_team_members} members."
+          when "comments" then msg.send "#{results.total_commit_comments} commit comments.\n#{results.total_gist_comments} gist comments.\n#{results.total_issue_comments} issye comments.\n#{results.total_pull_request_comments} pull request comments.\n"
+          when "pages" then msg.send "#{results.total_pages} pages."
+          when "users" then msg.send "#{results.total_users} users; #{results.admin_users} admins and #{results.suspended_users} suspended."
+          when "gists" then msg.send "#{results.total_gists} gists; #{results.private_gists} private and #{results.public_gists} public."
+          when "pulls" then msg.send "#{results.total_pulls} pulls; #{results.merged_pulls} merged, #{results.mergable_pulls} mergable and #{results.unmergable_pulls} unmergable."
+          when "repos" then msg.send "#{results.total_repos} repositories, #{results.root_repos} root and #{results.fork_repos} forks.\n#{results.org_repos} in organizations.\n#{results.total_pushes} pushes in total.\n#{results.total_wikis} wikis."
       else
         msg.send "statusCode: #{res.statusCode} -- #{body} -- type: #{type} -- #{msg.match[1]}"
