@@ -66,7 +66,7 @@ ghe_stats = (msg, token, url) ->
           when "hooks" then msg.send "#{results.total_hooks} hooks; #{results.active_hooks} active and #{results.inactive_hooks} inactive."
           when "milestones" then msg.send "#{results.total_milestones} milestones; #{results.open_milestones} open and #{results.closed_milestones} closed."
           when "orgs" then msg.send "#{results.total_orgs} organizations; #{results.disabled_orgs} disabled.\n#{results.total_teams} teams with #{results.total_team_members} members."
-          when "comments" then msg.send "#{results.total_commit_comments} commit comments.\n#{results.total_gist_comments} gist comments.\n#{results.total_issue_comments} issye comments.\n#{results.total_pull_request_comments} pull request comments.\n"
+          when "comments" then msg.send "#{results.total_commit_comments} commit comments.\n#{results.total_gist_comments} gist comments.\n#{results.total_issue_comments} issue comments.\n#{results.total_pull_request_comments} pull request comments.\n"
           when "pages" then msg.send "#{results.total_pages} pages."
           when "users" then msg.send "#{results.total_users} users; #{results.admin_users} admins and #{results.suspended_users} suspended."
           when "gists" then msg.send "#{results.total_gists} gists; #{results.private_gists} private and #{results.public_gists} public."
