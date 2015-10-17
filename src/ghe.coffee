@@ -27,7 +27,8 @@
 module.exports = (robot) ->
   url = process.env.HUBOT_GHE_URL + '/api/v3'
   token = process.env.HUBOT_GHE_TOKEN
-  process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
+  # If you're using a self signed certificate, uncomment the next line
+  # process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
 
   unless token
     msg.send "token isn't set."
