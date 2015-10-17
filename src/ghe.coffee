@@ -30,7 +30,7 @@ module.exports = (robot) ->
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
 
   unless token
-    msg.send "token isn't set."
+    robot.logger.error "GitHub Enterprise token isn't set."
 
   robot.respond /ghe license$/i, (msg) ->
     ghe_license msg,token,url
