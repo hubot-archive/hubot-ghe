@@ -1,5 +1,10 @@
 # ChangeLog
 
+## 0.1.2 - 2015-10-17
+
+- Adds proper error logging when `HUBOT_GHE_TOKEN` is not set
+- Removes a self signed certificate configuration option
+
 ## 0.1.1 - 2015-10-15
 
 - Fixes a typo
